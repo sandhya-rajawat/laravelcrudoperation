@@ -7,13 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * Since we're using Form Request validation (StoreProductRequest and UpdateProductRequest),
+     * and only validated data is passed via $request->validated(),
+     * we don't need $fillable. All fields are guarded except those explicitly allowed.
      */
-    protected $fillable = [
-        'name',
-        'description',
-        'price',
-    ];
+    protected $guarded = [];
 }
